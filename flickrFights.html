@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>img{ height: 100px; float: left; }
+  		 div{ float:left; margin: 0 30px;}
+  </style>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+		var howMany = 5;
+		var catURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=cats&tagmode=any&format=json&jsoncallback=?";
+		var dogURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&tagmode=any&format=json&jsoncallback=?";
+
+		$.getJSON(catURL, function(data){
+			console.log(data);
+	          $.each(data.items, function(i,item){
+	          	//console.log(item)
+	            
+	            // Create an img element, set its attributes, and add it to the #cats div
+	            if ( i == howMany ) return false; //stop loop
+		  });
+		});
+
+			
+		$.getJSON(dogURL,function(data){
+			console.log(data);
+	          $.each(data.items, function(i,item){
+	          	//console.log(item)
+	            
+	            // Create an img element, set its attributes, and add it to the #dogs div
+	            if ( i == howMany ) return false; //stop loop
+		  });
+		});   
+
+});	
+		</script>
+</head>
+<body>
+	<h1>jQuery using JSON: Flickr Photos</h1>
+	<div id="cats"><h2 id="catPhotos">Cat Photos</h2></div>
+	<div id="dogs"><h2 id="dogPhotos">Dog Photos</h2></div>
+	
+
+
+
+</body>
+</html>
