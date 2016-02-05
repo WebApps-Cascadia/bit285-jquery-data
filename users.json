@@ -1,0 +1,146 @@
+{
+  "users": [
+    {
+      "name": "Ian",
+      "id": 1,
+      "login": [
+        "January 10, 2016",
+        "February 1, 2016"
+      ]
+    },
+    {
+      "name": "Brian",
+      "id": 2,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 19, 2016",
+        "January 21, 2016",
+        "January 26, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+    },
+    {
+      "name": "David",
+      "id": 3,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 19, 2016",
+        "January 21, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+    },
+    {
+      "name": "Dino",
+      "id": 4,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 19, 2016",
+        "January 26, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+    },
+    {
+      "name": "Deborah",
+      "id": 5,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 19, 2016",
+        "January 21, 2016",
+        "January 26, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+    },
+    {
+      "name": "Liz",
+      "id": 6,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 21, 2016",
+        "January 26, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+    },
+    {
+      "name": "Fred",
+      "id": 7,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 21, 2016",
+        "January 26, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+    },
+    {
+      "name": "Jon",
+      "id": 8,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 19, 2016",
+        "January 21, 2016",
+        "January 26, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+
+    },
+    {
+      "name": "Kat",
+      "id": 9,
+      "login": [
+        "January 14, 2016",
+        "January 19, 2016",
+        "January 21, 2016",
+        "January 26, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+
+    },
+    {
+      "name": "Pawanjit",
+      "id": 2,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 21, 2016",
+        "January 26, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+    },
+    {
+      "name": "Elena",
+      "id": 10,
+      "login": [
+        "January 12, 2016",
+        "January 14, 2016",
+        "January 19, 2016",
+        "January 21, 2016",
+        "January 28, 2016",
+        "February 2, 2016",
+        "February 4, 2016"
+      ]
+    }
+  ]
+}
