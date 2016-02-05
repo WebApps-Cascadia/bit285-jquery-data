@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>JSON Read</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+		
+		<script type="text/javascript">
+			$("document").ready(function(){
+				//get the XML data and add list items
+			    var url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson";
+				$.getJSON(url,  function (data) {
+					 console.log(data); 
+					 //console.log("Printing data.features");console.log(data.features[0].properties);
+					 $.each(data.features, function (i, val) {
+					     if (val.properties.place.indexOf("Washington") != -1)
+					     {
+					         console.log(val.properties.place);
+					         var loc = $("<li></li>").html(val.properties.place);
+					         var ul = $("<ul></ul>");
+					         $("<li></li>").html("Time = " + new Date(val.properties.time)).appendTo(ul);
+					         $("<li></li>").html("Coords = " + val.geometry.coordinates[0] + ", " +
+                                 val.geometry.coordinates[1] + ", " + val.geometry.coordinates[2]).appendTo(ul);
+					         $("<li></li>").html("Magnitude = " + val.properties.mag).appendTo(ul);
+					         $("<li></li>").append($("<a></a>").attr("href", val.properties.url).html("details")).appendTo(ul);
+					         ul.appendTo(loc);
+					         loc.appendTo($("#quakes"));
+                         }
+					});
+				});				
+			});
+ 
+		</script>
+    </head>
+    <body>
+        <h1>Earthquakes recorded within the last week with a M1.0+ intensity in Washington State</h1>
+		<ul id="quakes"></ul>
+    </body>
+</html>
