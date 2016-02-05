@@ -1,47 +1,98 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <style>img{ height: 100px; float: left; }
-  		 div{ float:left; margin: 0 30px;}
-  </style>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-		var howMany = 5;
-		var catURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=cats&tagmode=any&format=json&jsoncallback=?";
-		var dogURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&tagmode=any&format=json&jsoncallback=?";
+    <style>
+    img {
+        height: 100px;
+        float: left;
+    }
+    
+    div {
+        float: left;
+        margin: 0 30px;
+    }
+    
+    body {
+        background: #ccc;
+    }
+    </style>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var howMany = 5;
+        var catURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=cats&tagmode=any&format=json&jsoncallback=?";
+        var dogURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&tagmode=any&format=json&jsoncallback=?";
 
-		$.getJSON(catURL, function(data){
-			console.log(data);
-	          $.each(data.items, function(i,item){
-	          	//console.log(item)
-	            
-	            // Create an img element, set its attributes, and add it to the #cats div
-	            if ( i == howMany ) return false; //stop loop
-		  });
-		});
+        update(howMany);
 
-			
-		$.getJSON(dogURL,function(data){
-			console.log(data);
-	          $.each(data.items, function(i,item){
-	          	//console.log(item)
-	            
-	            // Create an img element, set its attributes, and add it to the #dogs div
-	            if ( i == howMany ) return false; //stop loop
-		  });
-		});   
+        function update(howMany) {
+        	//remove previous
+        	$('#catPhotos').nextAll().remove();
+        	$('#dogPhotos').nextAll().remove();
 
-});	
-		</script>
+            $.getJSON(catURL, function(data) {
+                console.log(data);
+                $.each(data.items, function(i, item) {
+                    if (i == howMany) return false; //stop loop
+
+                    $("<img />").attr('src', item.media.m)
+                        .appendTo("#cats");
+
+                    // Create an img element, set its attributes, and add it to the #cats div
+
+                });
+            });
+
+
+            $.getJSON(dogURL, function(data) {
+                console.log(data);
+                $.each(data.items, function(i, item) {
+                    //console.log(item)
+
+                    // Create an img element, set its attributes, and add it to the #dogs div
+                    if (i == howMany) return false; //stop loop
+
+                    $("<img />").attr('src', item.media.m)
+                        .appendTo("#dogs");
+                });
+            });
+        }
+
+
+
+
+
+        $("#slider").slider({
+            animate: true,
+            range: "min",
+            value: 1,
+            min: 1,
+            max: 10,
+            step: 1,
+            slide: function(event, ui) {
+                $("#value").html(ui.value);
+                howMany = ui.value;
+                update(howMany);
+            }
+        });
+
+    });
+    </script>
 </head>
+
 <body>
-	<h1>jQuery using JSON: Flickr Photos</h1>
-	<div id="cats"><h2 id="catPhotos">Cat Photos</h2></div>
-	<div id="dogs"><h2 id="dogPhotos">Dog Photos</h2></div>
-	
-
-
-
+    <h1>jQuery using JSON: Flickr Photos</h1>
+    <p style="width: 400px" id="slider"></p>
+    <p>slide value: <span id="value"></span></p>
+    <br>
+    <div id="cats">
+        <h2 id="catPhotos">Cat Photos</h2>
+    </div>
+    <div id="dogs">
+        <h2 id="dogPhotos">Dog Photos</h2></div>
 </body>
+
 </html>
