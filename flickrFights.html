@@ -5,45 +5,68 @@
   		 div{ float:left; margin: 0 30px;}
   </style>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-		var howMany = 5;
-		var catURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=cats&tagmode=any&format=json&jsoncallback=?";
-		var dogURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&tagmode=any&format=json&jsoncallback=?";
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+      var draw = function (howMany) {
+          console.log(howMany)
+          var catURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=cats&tagmode=any&format=json&jsoncallback=?";
+          var dogURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&tagmode=any&format=json&jsoncallback=?";
 
-		$.getJSON(catURL, function(data){
-			console.log(data);
-			$.each(data.items, function (i, item) {
-			    console.log(item)
-			    $("<img/>").attr("src", item.media.m)
-			    .appendTo("#cats");
-			    // Create an img element, set its attributes, and add it to the #cats div
-			    if (i == howMany) return false; //stop loop
-			});
-		});
+          $("#cats img").remove();
+          $.getJSON(catURL, function (data) {
+              console.log(data);
+              $.each(data.items, function (i, item) {
+                  console.log(item)
+                  $("<img/>").attr("src", item.media.m)
+                  .appendTo("#cats");
+                  // Create an img element, set its attributes, and add it to the #cats div
+                  if (i == howMany) return false; //stop loop
+              });
+          });
 
-			
-		$.getJSON(dogURL,function(data){
-			console.log(data);
-	          $.each(data.items, function(i,item){
-	          	//console.log(item)
-	              $("<img/>").attr("src", item.media.m)
+
+          $("#dogs img").remove();
+          $.getJSON(dogURL, function (data) {
+              console.log(data);
+              $.each(data.items, function (i, item) {
+                  $("<img/>").attr("src", item.media.m)
                   .appendTo("#dogs");
-	              // Create an img element, set its attributes, and add it to the #dogs div
-	            if ( i == howMany ) return false; //stop loop
-		  });
-		});   
+                  // Create an img element, set its attributes, and add it to the #dogs div
+                  if (i == howMany) return false; //stop loop
+              });
+          });
+      }
 
-});	
-		</script>
+      $(function () {
+          $("#slider").slider({
+              range: "min",
+              min: 1,
+              max: 20,
+              value: 5,
+              stop: function (event, ui) {
+                  $("#amount").val($("#slider").slider("value"));
+                  draw(ui.value - 1);
+              },
+              create: function (event, ui) {
+                  $("#amount").val($("#slider").slider("value"));
+                  draw(4)
+              }
+          });
+      });
+  </script>
 </head>
 <body>
 	<h1>jQuery using JSON: Flickr Photos</h1>
+    <p>
+        <label for="amount">Number of Photos:</label>
+        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+
+    <div id="slider" style="width:200px"></div>
+
 	<div id="cats"><h2 id="catPhotos">Cat Photos</h2></div>
 	<div id="dogs"><h2 id="dogPhotos">Dog Photos</h2></div>
-	
-
-
 
 </body>
 </html>
