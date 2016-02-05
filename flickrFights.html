@@ -13,12 +13,13 @@ $(document).ready(function() {
 
 		$.getJSON(catURL, function(data){
 			console.log(data);
-	          $.each(data.items, function(i,item){
-	          	//console.log(item)
-	            
-	            // Create an img element, set its attributes, and add it to the #cats div
-	            if ( i == howMany ) return false; //stop loop
-		  });
+			$.each(data.items, function (i, item) {
+			    console.log(item)
+			    $("<img/>").attr("src", item.media.m)
+			    .appendTo("#cats");
+			    // Create an img element, set its attributes, and add it to the #cats div
+			    if (i == howMany) return false; //stop loop
+			});
 		});
 
 			
@@ -26,8 +27,9 @@ $(document).ready(function() {
 			console.log(data);
 	          $.each(data.items, function(i,item){
 	          	//console.log(item)
-	            
-	            // Create an img element, set its attributes, and add it to the #dogs div
+	              $("<img/>").attr("src", item.media.m)
+                  .appendTo("#dogs");
+	              // Create an img element, set its attributes, and add it to the #dogs div
 	            if ( i == howMany ) return false; //stop loop
 		  });
 		});   
