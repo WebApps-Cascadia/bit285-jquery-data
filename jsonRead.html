@@ -5,18 +5,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>JSON Read</title>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-		
+		<script type="text/javascript" src="app.js"></script>
 		<script type="text/javascript">
 			$("document").ready(function(){
 				//get the XML data and add list items
-				var url = "names.json";
+				var url = "users.json";
 				$.getJSON(url,  function (data) {
 					 console.log(data); 
-					 console.log("Printing data.names");console.log(data.names);
-					$.each(data.names, function(i,val){
-						$("<li></li>")
-						.html(val)
-						.appendTo("ul#userList");	
+					 //console.log("Printing data.names");console.log(data.names);
+
+					 var personString = null;
+					$.each(data.users, function(i,val){
+						personString = "<li>" + val.id + '-' + val.name + "</li>";
+						var loginArray = val.login;
+						if (loginArray.length > 0) {
+							personString += '<ul>';
+							for(var i=0; i < loginArray.length; i++){
+								personString += '<li>' + loginArray[i] + '</li>';
+							}
+							personString += '</ul>';
+						}
+
+
+						$("ul#userList").append(personString);	
 					});
 				});				
 			});
@@ -26,5 +37,7 @@
     <body>
         <h1>Reading from and JSON Document using jQuery.getJSON()</h1>
 		<ul id="userList"></ul>
+
+		<div id="project"></div>
     </body>
 </html>
