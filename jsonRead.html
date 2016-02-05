@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -9,14 +9,23 @@
 		<script type="text/javascript">
 			$("document").ready(function(){
 				//get the XML data and add list items
-				var url = "names.json";
+				var url = "users.json";
 				$.getJSON(url,  function (data) {
 					 console.log(data); 
 					 console.log("Printing data.names");console.log(data.names);
-					$.each(data.names, function(i,val){
-						$("<li></li>")
-						.html(val)
-						.appendTo("ul#userList");	
+					$.each(data.users, function(i,val){
+					    var user = $("<li></li>").html(val.name);
+					    var ul = $("<ul></ul>");
+					    $("<li></li>").html("ID = " + val.id).appendTo(ul);
+					    var logins = $("<li></li>").html("Login dates");
+					    logins.appendTo(ul);
+					    var datel = $("<ul></ul>");
+					    $.each(val.login, function (i, date) {
+					        $("<li></li>").html(date).appendTo(datel);
+					    })
+					    datel.appendTo(logins);
+					    ul.appendTo(user);
+					    user.appendTo("ul#userList");
 					});
 				});				
 			});
@@ -24,7 +33,7 @@
 		</script>
     </head>
     <body>
-        <h1>Reading from and JSON Document using jQuery.getJSON()</h1>
+        <h1>Reading from a JSON Document using jQuery.getJSON()</h1>
 		<ul id="userList"></ul>
     </body>
 </html>
