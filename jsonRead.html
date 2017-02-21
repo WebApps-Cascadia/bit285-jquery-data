@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -8,15 +8,24 @@
 		
 		<script type="text/javascript">
 			$("document").ready(function(){
-				//get the XML data and add list items
-				var url = "names.json";
+				
+				var url = "users.json";
 				$.getJSON(url,  function (data) {
 					 console.log(data); 
-					 console.log("Printing data.names");console.log(data.names);
-					$.each(data.names, function(i,val){
+					 console.log("Printing data.name");
+					 //console.log(data.name);
+					$.each(data.users.user, function(i,val){
 						$("<li></li>")
-						.html(val)
-						.appendTo("ul#userList");	
+						.html(val.name)
+						.appendTo("ul#userList");
+
+						$("<li></li>")
+						.html(val.id)
+						.appendTo("ul#userList");
+
+						$("<li></li>")
+						.html(val.login[1].date)
+						.appendTo("ul#userList");
 					});
 				});				
 			});
