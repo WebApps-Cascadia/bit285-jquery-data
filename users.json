@@ -1,0 +1,96 @@
+﻿{
+  "users": {
+    "user": [
+      {
+        "name": "Brian",
+        "id": "1",
+        "login": [
+          { "date": "january 10, 2016" },
+          { "date": "febuary 1, 2016" }
+        ]
+      },
+      {
+        "name": "david",
+        "id": "2",
+        "login": [
+          { "date": "october 1, 2016" },
+          { "date": "december 7, 2016" }
+        ]
+      },
+      {
+        "name": "Rattana",
+        "id": "3",
+        "login": [
+          { "date": "january 12, 2016" },
+          { "date": "march 20, 2016" }
+        ]
+      },
+      {
+        "name": "Dino",
+        "id": "4",
+        "login": [
+          { "date": "march 17, 2016" },
+          { "date": "october 17, 2016" }
+        ]
+      },
+      {
+        "name": "Deborah",
+        "id": "5",
+        "login": [
+          { "date": "july 3, 2016" },
+          { "date": "october 23, 2016" }
+        ]
+      },
+      {
+        "name": "Liz",
+        "id": "6",
+        "login": [
+          { "date": "august 14, 2016" },
+          { "date": "october 25, 2016" }
+        ]
+      },
+      {
+        "name": "Fred",
+        "id": "7",
+        "login": [
+          { "date": "march 5, 2016" },
+          { "date": "april 4, 2016" }
+        ]
+      },
+      {
+        "name": "Jon",
+        "id": "8",
+        "login": [
+          { "date": "april 18, 2016" },
+          { "date": "august 21, 2016" }
+        ]
+      },
+      {
+        "name": "Kat",
+        "id": "9",
+        "login": [
+          { "date": "january 16, 2016" },
+          { "date": "march 5, 2016" }
+        ]
+      },
+      {
+        "name": "Pawanjit",
+        "id": "10",
+        "login": [
+          { "date": "july 4, 2016" },
+          { "date": "december 25, 2016" }
+        ]
+      },
+      {
+        "name": "Elena",
+        "id": "11",
+        "login": [
+          { "date": "august 1, 2016" },
+          { "date": "febuary 4, 2016" }
+        ]
+      }
+     
+    ]
+  }
+
+}
