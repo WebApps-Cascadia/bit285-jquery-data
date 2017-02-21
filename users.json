@@ -1,0 +1,39 @@
+﻿{
+  "users": {
+    "user": [
+      {
+        "name": "Brian",
+        "id": "1"
+      },
+      {
+        "name": "David",
+        "id": "2"
+      },
+      {
+        "name": "Rattanak",
+        "id": "3"
+      },
+      {
+        "name": "Dino",
+        "id": "4"
+      },
+      {
+        "name": "Deborah",
+        "id": "5"
+      },
+      {
+        "name": "Liz",
+        "id": "6"
+      },
+      {
+        "name": "Fred",
+        "id": "7"
+      },
+      {
+        "name": "Ian",
+        "id": "8",
+        "login": [ "January 10, 2016", "February 1, 2016" ]
+      }
+    ]
+  }
+}
