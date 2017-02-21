@@ -12,7 +12,8 @@
 				var url = "users.json";
 				$.getJSON(url,  function (data) {
 					 console.log(data); 
-					 console.log("Printing data.name");console.log(data.name);
+					 console.log("Printing data.name");
+					 //console.log(data.name);
 					$.each(data.users.user, function(i,val){
 						$("<li></li>")
 						.html(val.name)
@@ -23,7 +24,7 @@
 						.appendTo("ul#userList");
 
 						$("<li></li>")
-						.html(val.login)
+						.html(val.login[1].data)
 						.appendTo("ul#userList");
 					});
 				});				
