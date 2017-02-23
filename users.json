@@ -1,0 +1,44 @@
+﻿{
+  "users":[
+      {
+        "name": "Brian",
+        "id": "1",
+          "login": [ "January 10, 2016", "February 1, 2016" ]
+      },
+      {
+        "name": "David",
+        "id": "2",
+          "login": [ "January 10, 2016", "February 1, 2016" ]
+      },
+      {
+        "name": "Rattanak",
+        "id": "3",
+        "login": [ "January 10, 2016", "February 1, 2016" ]
+      },
+      {
+        "name": "Dino",
+        "id": "4",
+        "login": [ "January 10, 2016", "February 1, 2016" ]
+      },
+      {
+        "name": "Deborah",
+        "id": "5",
+        "login": [ "January 10, 2016", "February 1, 2016" ]
+      },
+      {
+        "name": "Liz",
+        "id": "6",
+        "login": [ "January 10, 2016", "February 1, 2016" ]
+      },
+      {
+        "name": "Fred",
+        "id": "7",
+        "login": [ "January 10, 2016", "February 1, 2016" ]
+      },
+      {
+        "name": "Ian",
+        "id": "8",
+        "login": [ "January 10, 2016", "February 1, 2016" ]
+      }
+    ]
+}

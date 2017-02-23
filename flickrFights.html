@@ -12,21 +12,29 @@ $(document).ready(function() {
 		var dogURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&tagmode=any&format=json&jsoncallback=?";
 
 		$.getJSON(catURL, function(data){
-			console.log(data);
-	          $.each(data.items, function(i,item){
-	          	//console.log(item)
-	            
-	            // Create an img element, set its attributes, and add it to the #cats div
-	            if ( i == howMany ) return false; //stop loop
-		  });
+		    $.each(data.items, function (i, photo) {
+		        //console.log(photo);
+		        $("<li></li>").html(photo.title).appendTo("#userList");
+		        console.log(photo.media.m);
+		        $("<img />")
+                    .attr("src", photo.media.m)
+                    .attr("title", photo.title)
+                    .appendTo("div#cats");
+		        if (i == howMany) return false; //Stops Loop
+		    });
 		});
 
 			
 		$.getJSON(dogURL,function(data){
 			console.log(data);
-	          $.each(data.items, function(i,item){
-	          	//console.log(item)
-	            
+	          $.each(data.items, function(i, photo){
+	              //console.log(item)
+	              $("<li></li>").html(photo.title).appendTo("#userList");
+	              console.log(photo.media.m);
+	              $("<img />")
+                      .attr("src", photo.media.m)
+                      .attr("title", photo.title)
+                      .appendTo("div#dogs");
 	            // Create an img element, set its attributes, and add it to the #dogs div
 	            if ( i == howMany ) return false; //stop loop
 		  });
