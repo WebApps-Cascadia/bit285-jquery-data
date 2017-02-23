@@ -16,15 +16,25 @@
 				    /*
                     console.log(data.employees[1].lastname);
                     */
-					$.each(data.users, function(i,user){
-					    $("<li></li>")
-						.html(user)
+
+                    //Append logins to some li element and use css to make the illusion a reality
+       
+					 $.each(data.users, function (i, user) {
+					     $("<li></li>")
+                             //look up string concatination
+						.html(user.name)
 						.appendTo("ul#userList");
-					    $.each(data.login, function (i, login) {
-					        $("<li id='loginList'></li>")
-                            .html(login)
-                            .appendTo("li#loginList");
-					    });
+					     console.log("before inner each");
+					     $("<ul id='loginList'></ul>").appendTo("ul#userList")
+                         
+					    if (user.login != null) {
+			 		        $.each(user.login, function (i, login) {
+					            $("<li></li>")
+                                .html(login)
+                                    //append to last child of ul user list
+                                .appendTo("ul#loginList");
+					        });
+					    }
 					});
 				});				
 			});
