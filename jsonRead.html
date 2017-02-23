@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -9,14 +9,32 @@
 		<script type="text/javascript">
 			$("document").ready(function(){
 				//get the XML data and add list items
-				var url = "names.json";
-				$.getJSON(url,  function (data) {
+				var url = "users.json";
+				$.getJSON("users.json",  function (data) {
 					 console.log(data); 
-					 console.log("Printing data.names");console.log(data.names);
-					$.each(data.names, function(i,val){
-						$("<li></li>")
-						.html(val)
-						.appendTo("ul#userList");	
+					 console.log("Printing data.users"); console.log(data.users);
+				    /*
+                    console.log(data.employees[1].lastname);
+                    */
+
+                    //Append logins to some li element and use css to make the illusion a reality
+       
+					 $.each(data.users, function (i, user) {
+					     $("<li></li>")
+                             //look up string concatination
+						.html(user.name)
+						.appendTo("ul#userList");
+					     console.log("before inner each");
+					     $("<ul id='loginList'></ul>").appendTo("ul#userList")
+                         
+					    if (user.login != null) {
+			 		        $.each(user.login, function (i, login) {
+					            $("<li></li>")
+                                .html(login)
+                                    //append to last child of ul user list
+                                .appendTo("ul#loginList");
+					        });
+					    }
 					});
 				});				
 			});
@@ -25,6 +43,7 @@
     </head>
     <body>
         <h1>Reading from and JSON Document using jQuery.getJSON()</h1>
-		<ul id="userList"></ul>
+		<ul id="userList">
+        </ul>
     </body>
 </html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery Test Photos</title>
+	<meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>JQuery Test</h1>
+    <ul id="userList"></ul>
+    <script>
+        $("h1").addClass("red");
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=cats&tagmode=any&format=json&jsoncallback=?", function (data) {
+            //console.log(data)
+            $.each(data.items, function (i,photo) {
+                //console.log(photo);
+                $("<li></li>").html(photo.title).appendTo("#userList");
+                console.log(photo.media.m);
+                $("<img />")
+                    .attr("src", photo.media.m)
+                    .attr("title", photo.title)
+                    .appendTo("body");
+            });
+        });
+    </script>
+</body>
+</html>
