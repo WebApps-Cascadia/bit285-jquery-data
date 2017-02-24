@@ -12,36 +12,48 @@ $(document).ready(function() {
 		var dogURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&tagmode=any&format=json&jsoncallback=?";
 
 		$.getJSON(catURL, function(data){
-			console.log(data);
+			//console.log(data);
 	          $.each(data.items, function(i,item){
-	          	//console.log(item)
-	            
-	            // Create an img element, set its attributes, and add it to the #cats div
+	              //console.log(item)
+	              // Create an img element, set its attributes, and add it to the #cats div
+	          	$("<img/>").attr("src", item.media.m)
+                    .attr("title", item.title).appendTo("#cats");
 	            if ( i == howMany ) return false; //stop loop
 		  });
 		});
-
 			
 		$.getJSON(dogURL,function(data){
-			console.log(data);
+			//console.log(data);
 	          $.each(data.items, function(i,item){
-	          	//console.log(item)
-	            
-	            // Create an img element, set its attributes, and add it to the #dogs div
+	              //console.log(item)
+	              // Create an img element, set its attributes, and add it to the #dogs div
+	              $("<img/>").attr("src", item.media.m)
+                      .attr("title", item.title).appendTo("#dogs");
 	            if ( i == howMany ) return false; //stop loop
-		  });
-		});   
-
+        });
+    });   
 });	
 		</script>
+    <style>
+        #resizible {width: 150px; height: 150px; padding: 0.5em;}
+        #resizible h2 {text-align: center; margin: 0;}
+
+        body {
+            background: #4800ff;
+            color: brown;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0 45px
+        }
+        h1 {color:aquamarine;}
+        h2 {color:green;}
+
+    </style>
 </head>
 <body>
-	<h1>jQuery using JSON: Flickr Photos</h1>
-	<div id="cats"><h2 id="catPhotos">Cat Photos</h2></div>
-	<div id="dogs"><h2 id="dogPhotos">Dog Photos</h2></div>
-	
-
-
-
+    <div id="resizible">
+	    <h1>jQuery using JSON: Flickr Photos</h1>
+	    <div id="cats"><h2 id="catPhotos">Cat Photos</h2></div>
+	    <div id="dogs"><h2 id="dogPhotos">Dog Photos</h2></div>
+    </div>
 </body>
 </html>
