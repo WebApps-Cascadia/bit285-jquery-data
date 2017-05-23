@@ -1,30 +1,49 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>JSON Read</title>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-		
-		<script type="text/javascript">
-			$("document").ready(function(){
-				//get the XML data and add list items
-				var url = "names.json";
-				$.getJSON(url,  function (data) {
-					 console.log(data); 
-					 console.log("Printing data.names");console.log(data.names);
-					$.each(data.names, function(i,val){
-						$("<li></li>")
-						.html(val)
-						.appendTo("ul#userList");	
-					});
-				});				
-			});
- 
-		</script>
-    </head>
-    <body>
-        <h1>Reading from and JSON Document using jQuery.getJSON()</h1>
-		<ul id="userList"></ul>
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JSON Read</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+
+    <script type="text/javascript">
+            $("document").ready(function () {
+                //get the XML data and add list items
+                      // the is check
+                      // this is  check to see the url and that is check for the check
+                      // so no there is a 
+                      // This is a test
+                      // There can be a test
+                      // one more rounf
+                      // is there one more
+                var url = "names.json";
+                $.getJSON(url, function (data) {
+                    console.log(data);
+                    console.log("Printing data.names"); console.log(data.names);
+                    $.each(data.names, function (i, val) {
+                        var logins = $("<ul></ul>");
+                        $.each(val.logins, function (j, login) {
+                            $("<li></li>")
+                            .html(login)
+                            .appendTo(logins);
+                        });
+
+                        console.log(logins)
+
+                        $("<li></li>")
+                       .html(val.name + ', Id:' + val.id)
+                       .append(logins)
+                       .appendTo("ul#userList");
+
+                    });
+                });
+            });
+
+    </script>
+</head>
+<body>
+         
+    <h1>Reading from and JSON Document using jQuery.getJSON()</h1>
+    <ul id="userList"></ul>
+</body>
 </html>
